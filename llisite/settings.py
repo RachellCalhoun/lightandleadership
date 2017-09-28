@@ -33,7 +33,7 @@ else:
 if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['lightandleadership.pythonanywhere.com', 'lightandleadership.com']
+    ALLOWED_HOSTS = ['lightandleadership.pythonanywhere.com', 'lightandleadership.com', 'www.lightandleadership.com']
 
 # Application definition
 
