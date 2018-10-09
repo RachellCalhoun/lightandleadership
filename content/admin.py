@@ -1,6 +1,10 @@
 from django.contrib import admin
 
-from .models import OurStory, OurTeam, EduProgram, EthicalPost, VolunteerPeru, VolunteerOpenPosition, VolunteerAbout, CustomPage, Home, FooterInfo, DonateSection, Menu, SubMenu, HomeLink, Apply
+from .models import (
+    OurStory, OurTeam, EduProgram, EthicalPost, VolunteerPeru, VolunteerOpenPosition,
+    VolunteerAbout, CustomPage, Home, FooterInfo, DonateSection, Menu, SubMenu, HomeLink,
+    Apply, AnalyticTag
+)
 from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 from tinymce.widgets import TinyMCE
@@ -77,6 +81,7 @@ class HomeLinkAdmin(admin.ModelAdmin):
 class ApplyAdmin(admin.ModelAdmin):
     list_display = ('title', 'text')
 
+admin.site.register(AnalyticTag)
 admin.site.register(Apply, ApplyAdmin)
 admin.site.register(OurStory, OurStoryAdmin)
 admin.site.register(OurTeam, OurTeamAdmin)
