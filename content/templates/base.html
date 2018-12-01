@@ -18,9 +18,15 @@
         <!--custom style sheet-->
         <link rel="stylesheet" type="text/css" href="{% static 'css/content.css' %}">
         {% block google_analytics %}
-            {% if global_tag %}
-                {% autoescape off %}{{ global_tag.snippet }}{% endautoescape %}
-            {% endif %}
+            {% for tag in analytic_tags %}
+                {% if tag.page == "Global" %}
+                    {% autoescape off %}{{ tag.snippet }}{% endautoescape %}
+                {% endif %}
+
+                {% if tag.page == request.path|slice:'1:' %}
+                    {% autoescape off %}{{ tag.snippet }}{% endautoescape %}
+                {% endif %}
+            {% endfor %}
         {% endblock %}
     </head>
     <body>

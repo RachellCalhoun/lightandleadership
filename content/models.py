@@ -208,17 +208,34 @@ class Apply(models.Model):
 
 class AnalyticTag(models.Model):
 	snippet = models.TextField(help_text="Enter the Google Analytics event snippet here for the page indicated")
-	ABOUTUS = "AboutUs"
-	DONATE = "Donate"
-	CLUB = "Club"
-	PAYPAL = "Paypal"
+	ABOUTUS = "ourstory"
+	PERU = "peru"
+	ETHICS = "ethics"
+	FINANCIALS = "financials"
+	OURTEAM = "ourteam"
+	TEENSPROGRAM = "teensprogram"
+	CHILDRENSPROGRAM = "childrensprogram"
+	WOMENSPROGRAM = "womensprogram"
+	DONATE = "donate"
+	VOLUNTEERPERU = "volunteerperu"
+	CHICAGO = "chicago"
+	DONATIONS = "donations"
 	GLOBAL = "Global"
+
 	EVENT_PAGE = (
-		(ABOUTUS, 'AboutUs'),
-		(DONATE, 'Donate'),
-		(CLUB, 'Club'),
-		(PAYPAL, 'Paypal'),
-		(GLOBAL, 'Global')
+		(ABOUTUS , "ourstory"),
+		(PERU , "peru"),
+		(ETHICS , "ethics"),
+		(FINANCIALS , "financials"),
+		(OURTEAM , "ourteam"),
+		(TEENSPROGRAM , "teensprogram"),
+		(CHILDRENSPROGRAM , "childrensprogram"),
+		(WOMENSPROGRAM , "womensprogram"),
+		(DONATE , "donate"),
+		(VOLUNTEERPERU, "volunteerperu"),
+		(CHICAGO , "chicago"),
+		(DONATIONS , "donations"),
+		(GLOBAL , "Global")
 		)
 	page = models.CharField(max_length=15, choices=EVENT_PAGE, default=ABOUTUS)
 
