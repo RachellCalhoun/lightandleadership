@@ -18,15 +18,18 @@ class OurStoryAdmin(admin.ModelAdmin):
     list_display=('order','img','text', 'color')
 
 class HomeAdmin(admin.ModelAdmin):
-    list_display = ('order','title','color','img','text')
+    list_display = ('id', 'title','order','color','img','text')
+    list_editable = ('order',)
 
 class OurTeamAdmin(admin.ModelAdmin):
     fields = ['title', 'text', 'peru_team', 'us_team', 'board_team']
     list_display = ('title', 'peru_team', 'us_team', 'board_team')
 
 class EduProgramAdmin(admin.ModelAdmin):
-    fields = ['category', 'order', 'title', 'img', 'color', 'text', 'video']
-    list_display = ('category', 'order','title', 'video')
+    fields = ['row_style', 'category', 'order', 'title', 'img', 'color', 'text']
+    list_display = ('id', 'category', 'order','title','row_style')
+    list_editable = ('row_style', 'order')
+    list_filter = ['category']
 
 
 class EthicalPostAdmin(admin.ModelAdmin):
@@ -49,7 +52,9 @@ class MCEFlatPageAdmin(FlatPageAdmin):
 
 class VolunteerPeruAdmin(admin.ModelAdmin):
     fields = ['category', 'order', 'color', 'title', 'img', 'text']
-    list_display = ('category', 'order','title')
+    list_display = ('id', 'category', 'order','title')
+    list_editable = ('order',)
+    list_filter = ('category', )
 
 class VolunteerOpenPositionAdmin(admin.ModelAdmin):
     list_display = ('title', 'date')
@@ -58,12 +63,16 @@ class VolunteerAboutAdmin(admin.ModelAdmin):
     list_display = ('order', 'title' )
 
 class CustomPageAdmin(admin.ModelAdmin):
-    list_display = ('category', 'order','title')
+    list_display = ('id', 'category', 'order','title')
+    list_editable = ('order',)
+    list_filter = ('category',)
 
 
 class DonateSectionAdmin(admin.ModelAdmin):
-    fields = ['category','order', 'color', 'title', 'img', 'text', 'paypal_button']
-    list_display = ('order', 'category', 'title')
+    fields = ['category', 'order', 'color', 'title', 'img', 'text', 'paypal_button']
+    list_display = ('id', 'category', 'order', 'title')
+    list_editable = ('order',)
+    list_filter = ('category',)
 
 class SubMenuInline(admin.TabularInline):
     model = SubMenu

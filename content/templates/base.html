@@ -22,7 +22,6 @@
                 {% if tag.page == "Global" %}
                     {% autoescape off %}{{ tag.snippet }}{% endautoescape %}
                 {% endif %}
-
                 {% if tag.page == request.path|slice:'1:' %}
                     {% autoescape off %}{{ tag.snippet }}{% endautoescape %}
                 {% endif %}
