@@ -51,7 +51,7 @@ class EduProgram(models.Model):
 	text = tinymce_models.HTMLField(blank=True, null=True, help_text="Enter a short description of program.")
 	color = models.CharField(max_length=20, blank=True, help_text="Only enter a color if the order >= 2. Both 'red' and '#FF0000' are accceptable")
 	order = models.PositiveIntegerField(help_text="Enter a number. 1 will be at the top of the page")
-	video = models.BooleanField(default=False, help_text="check here if you want this section to be full width")
+
 	CHILDREN = "Children"
 	TEENS = "Teens"
 	WOMEN = "Women"
@@ -63,6 +63,17 @@ class EduProgram(models.Model):
 		(ARTISAN, 'Artisan'),
 		)
 	category = models.CharField(max_length=15, choices=POSTCATEGORY, default=CHILDREN)
+	FULL = "full"
+	LONG_SHORT = "long_short"
+	SHORT_LONG = "short_long"
+	HIGHLIGHT = "highlight"
+	ROW_TYPE = (
+		(FULL, 'Full Row'),
+		(HIGHLIGHT, 'Highlight'),
+		(LONG_SHORT, 'Long Short'),
+		(SHORT_LONG, 'Short Long'),
+		)
+	row_style = models.CharField(max_length=15, choices=ROW_TYPE, default=FULL)
 
 	def __str__(self):
 		return self.title
@@ -141,6 +152,7 @@ class FooterInfo(models.Model):
 	twitterlink = models.URLField(default="#")
 	instagramlink = models.URLField(default="#")
 	copyright = models.CharField(default=" ", max_length=300)
+	email_signup = models.TextField(blank=True, null=True, help_text="you can enter code here for an email signup")
 
 	def __str__(self):
 		return self.text
