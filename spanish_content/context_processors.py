@@ -1,9 +1,5 @@
 from .models import FooterInfo, Menu
 
-def footer(request):
-    footer = FooterInfo.objects.all()
-    return {'footer': footer}
-
 
 def spanish_navbar(request):
     if 'es/' in request.get_full_path():
@@ -11,4 +7,5 @@ def spanish_navbar(request):
     else:
         english = True
     categories = Menu.objects.all().order_by('order')
-    return {'spanish_categories': categories, 'english': english}
+    footer = FooterInfo.objects.all()
+    return {'spanish_categories': categories, 'english': english, 'spanish_footer': footer}

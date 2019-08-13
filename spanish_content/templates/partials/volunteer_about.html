@@ -1,0 +1,33 @@
+{% if forloop.counter0|divisibleby:2 %}
+            <div class="row">
+                <div class=""> {% if post.img %}
+                    <div class="col-md-4">
+
+                        <img class="center-block img-responsive" src="{{ post.img.url }}" alt="Generic placeholder image">
+
+                    </div>
+                    <div class="col-md-8">{% else %} <div class="col-md-12"> {% endif %}
+                        <div class="volunteer-text">
+                            <p><strong> {{ post.title }}</strong></p>
+                            <div class="center-block">{{ post.text | safe }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+        <div class="row">
+            {%if post.img %}
+                <div class="col-md-4 col-md-push-8 ">
+
+                    <img class="center-block img-responsive" src="{{ post.img.url }}" alt="Generic placeholder image">
+
+                </div>
+                <div class="col-md-8 col-md-pull-4 ">{% else %} <div class="col-md-12"> {% endif %}
+                    <div class="volunteer-text">
+                        <p><strong> {{ post.title }}</strong></p>
+                        <div class="center-block">{{ post.text | safe }}</div>
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        <!--  end even odd rows-->
