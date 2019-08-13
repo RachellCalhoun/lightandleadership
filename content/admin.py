@@ -22,7 +22,7 @@ class HomeAdmin(admin.ModelAdmin):
     list_editable = ('order',)
 
 class OurTeamAdmin(admin.ModelAdmin):
-    fields = ['title', 'text', 'peru_team', 'us_team', 'board_team']
+    fields = ['title', 'text', 'img', 'peru_team', 'us_team', 'board_team']
     list_display = ('title', 'peru_team', 'us_team', 'board_team')
 
 class EduProgramAdmin(admin.ModelAdmin):
