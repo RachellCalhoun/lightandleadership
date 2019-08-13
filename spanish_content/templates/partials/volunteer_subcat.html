@@ -1,0 +1,23 @@
+{% if forloop.first %}
+        <div class="row" style="background-color:{{ post.color }}">
+        {% if post.img %}
+                <div class="col-md-4">
+                <img class="center-block img-responsive" src="{{ post.img.url }}">
+                </div>
+                <div class="col-md-8"> {% else %} <div class="col-md-12"> {% endif %}
+                <div class="volunteer-text">
+                        <h1 class="white-text">{{ post.title }}</h1>
+                        <div class="white-text"> {{ post.text | safe }}</div>
+                    </div>
+                </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-md-12">
+            <div class="volunteer-text">
+                    <p><strong>{{ post.title }}</strong></p>
+                    <p>{{  post.text | safe }}</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}

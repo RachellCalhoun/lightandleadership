@@ -8,4 +8,5 @@ db.sqlite3
 *.swp
 llivenv
 content.json
+spanishdump.json
 /.vscode

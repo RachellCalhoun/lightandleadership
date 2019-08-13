@@ -1,0 +1,38 @@
+{% load i18n %}
+
+{% if positions.count > 0 %}
+    <div class="row">
+        <div class="positions">
+            <div class="row">
+            <!-- these should truncate at 4 positions, arrow on right to scroll to more or link to more.  -->
+                <div class="col-md-12">
+                    {% if english %}
+                    <h1 class="white-text">Open Volunteer and Internship Positions</h1>
+                    <p class="white-text"><em>Don't see the position you're looking for? We have more opportunities than those listed.<a class="white-text" href="/apply">Please apply!</a></em></p>
+
+                    {% else %}
+                    <h1 class="white-text"> Posiciones abiertas de voluntariado y pasantías.</h1>
+                    <p class="white-text"><em>¿No ves la posición que estás buscando? Tenemos más oportunidades que las mencionadas. Por favor <a class="white-text" href="/es/aplicar">solicite!</a></em></p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+            {% for position in positions %}
+                <div class="col-md-3">
+                    <h3 class="white-text text-center">{{ position.title }}</h3>
+                   {% if english %}
+                   <p class="white-text text-center">{{ position.date|date:"D d M Y" }}</p>
+                   <h3 class="apply text-uppercase text-center"><a href="{{ position.link }}">Apply Now!</a></h3>
+                   {% else %}
+                   {% language 'es' %}
+                    <p class="white-text text-center">{{ position.date|date:"D d M Y" }}</p>
+                    {% endlanguage %}
+
+                    <h3 class="apply text-uppercase text-center"><a href="{{ position.link }}">¡Aplica ya!</a></h3>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
